@@ -4,7 +4,6 @@ import Form from "./components/Form";
 import Weather from "./components/Weather";
 
 const API_KEY = "07f46a9e39ae990daf52f26478c41e5d";
-//https://openweathermap.org/
 
 class App extends Component {
   state = {
@@ -20,8 +19,7 @@ class App extends Component {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=
-      ${API_KEY}&units=metric`);
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
     const data = await api_call.json();
 
     if (city && country) {
@@ -40,7 +38,7 @@ class App extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: "Please enter the value."
+        error: "Please enter the values."
       });
     }
   }
